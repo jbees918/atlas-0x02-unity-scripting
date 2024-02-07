@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
+    public Rigidbody
+
+    public float fwdForce = 2000f;
+
+
     public float speed = 7f;
 
     void Start()
@@ -13,14 +19,6 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
-        // Get input from arrow or WASD keys
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-
-        // Calculate movement vector
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
-        // Apply movement to the Rigidbody component's velocity
-        GetComponent<Rigidbody>().velocity = movement * speed;
+        rb.AddForce(0, 0, fwdForce * Time.deltaTime);
     }
 }
