@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 6f; // Variable to determine the movement speed
 
-     private int score =  0; // Initialize the score
+    private int score =  0; // Initialize the score
 
       void OnTriggerEnter(Collider other)
     {
