@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public int health
+    
     // Reference to Rigidbody component
     private Rigidbody rb;
 
