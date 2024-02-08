@@ -26,8 +26,7 @@ public class PlayerController : MonoBehaviour
         if (other. CompareTag("Trap"))
         {
         health--;
-        Debug.Log ("Health:
-        " + health); //Displays health
+        Debug.Log ("Health: " + health); //Displays health
 
 
 
