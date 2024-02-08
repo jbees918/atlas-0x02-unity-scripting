@@ -23,6 +23,12 @@ public class PlayerController : MonoBehaviour
             // Destroy coin after collection
             Destroy(other.gameObject);
 
+        if (other. CompareTag("Trap"))
+        {
+        health--;
+        Debug.Log ("Health:
+        " + health); //Displays health
+
 
 
     // Init
