@@ -9,6 +9,18 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 6f; // Variable to determine the movement speed
 
+     private int score =  0; // Initialize the score
+
+      void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Pickup"))
+        {
+            score++; // Increment the score
+            Debug.Log("Score: " + score); // Log the new score
+
+            // Destroy coin after collection
+            Destroy(other.gameObject);
+
 
 
     // Init
