@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // Reference to Rigidbody component
+    private Rigidbody rb;
+
+    public float speed = 6f; // Variable to determine the movement speed
+
+
+
     // Init
     void Start()
     {
@@ -15,7 +22,11 @@ public class PlayerController : MonoBehaviour
     {
         // Get input from arrow or WASD keys
 float moveHorizontal = Input.GetAxis("Horizontal");
-float moveVertical = 0.0f; // Ensure vertical movement is always zero
+float moveVertical = Input.GetAxis("Vertical");
+
+// Debug statements to print input values
+    Debug.Log("moveHorizontal: " + moveHorizontal);
+    Debug.Log("moveVertical: " + moveVertical);
 
 // Calculate movement vector
 Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
