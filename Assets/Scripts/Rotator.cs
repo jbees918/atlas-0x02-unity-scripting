@@ -17,5 +17,6 @@ public class Rotator : MonoBehaviour
     {
           // Rotate the coin around the X-axis
         transform.Rotate(Vector3.right, rotationSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.left, rotationSpeed * Time.deltaTime);
     }
 }
