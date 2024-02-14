@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
      public Text scoreText; // UI Text element for displaying score
     
-    // Method to update score UI text
+    // Method that updates score UI text
     public void SetScoreText()
     {
         scoreText.text = "Score: " + currentScore; // Assuming currentScore is the variable holding the player's score
