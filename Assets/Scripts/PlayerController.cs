@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Pickup"))
         {
             score++; // Increment score
-            Debug.Log("Score: " + score); // Log the new score
+            Debug.Log("Score: " + score); // In UI
 
             // Destroy coin after collection
             Destroy(other.gameObject);
@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Trap"))
         {
             health--; // Increment score
-            Debug.Log("Health: " + health); // Log new score
+            Debug.Log("Health: " + health); // In UI
         }
 
          if (health == 0)
