@@ -5,7 +5,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Reference to Rigidbody component
+     public Text scoreText; // UI Text element for displaying score
+    
+    // Method to update score UI text
+    public void SetScoreText()
+    {
+        scoreText.text = "Score: " + currentScore; // Assuming currentScore is the variable holding the player's score
+    }
+    // Ref to Rigidbody
     private Rigidbody rb;
 
     public float speed = 8f; // Variable to determine the movement speed
@@ -18,7 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Pickup"))
         {
-            score++; // Increment the score
+            score++; // Increment score
             Debug.Log("Score: " + score); // Log the new score
 
             // Destroy coin after collection
@@ -27,8 +34,8 @@ public class PlayerController : MonoBehaviour
 
         if (other.CompareTag("Trap"))
         {
-            health--; // Increment the score
-            Debug.Log("Health: " + health); // Log the new score
+            health--; // Increment score
+            Debug.Log("Health: " + health); // Log new score
         }
 
          if (health == 0)
