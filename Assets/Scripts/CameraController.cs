@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-         // Set the position of the camera to player position plus soffset
+         // Set position of the camera to player position plus soffset
         transform.position = player.transform.position + offset;
     }
 }
