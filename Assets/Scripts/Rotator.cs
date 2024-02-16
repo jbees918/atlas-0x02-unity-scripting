@@ -12,7 +12,7 @@ public class Rotator : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    // Update called once per frame
     void Update()
     {
           // Rotate the coin around the X-axis

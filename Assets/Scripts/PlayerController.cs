@@ -1,35 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Reference to Rigidbody component
-    private Rigidbody rb;
-
-    public float speed = 6f; // Variable to determine the movement speed
-
-     private int score =  0; // Initialize score
-
-     public Text scoreText;
-
-     // Method that updates score UI text
+     public Text scoreText, healthText; // UI Text element for displaying score
+    
+    // Method that updates score UI text
     public void SetScoreText()
     {
-        scoreText.text = "Score: " + score;
-     
+        scoreText.text = "Score: " + score; // Assuming currentScore is the variable holding the player's score
+    }
+
+    // Method to update health UI text
+    public void SetHealthText()
+    {
+        healthText.text = "Health: " + health;
+    }
+
+    // Ref to Rigidbody
+    private Rigidbody rb;
+
+    public float speed = 8f; // Variable to determine the movement speed
+
+     private int score =  0; // Initialize the score
 
      public int health = 5;
 
-      void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Pickup"))
         {
-            score++; // Increment the score
-            Debug.Log("Score: " + score); // Log the new score
-
-            // Destroy coin after collection
+            score++; // Increment score
+            // Debug.Log("Score: " + score); // In UI
+             SetScoreText();
+            // Destroy coin after it is collected
             Destroy(other.gameObject);
         }
 
@@ -37,12 +44,12 @@ public class PlayerController : MonoBehaviour
         {
             health--; // Increment the score
             Debug.Log("Health: " + health); // Log the new score
+
         }
 
-         if (health == 0)
-        { 
-            Debug.Log("Game Over!");
-            ReloadScene();
+         if(--health <= 0)
+        {
+                Debug.Log("Game Over!");
         }
         
         if (other.CompareTag("Goal"))
@@ -56,7 +63,15 @@ public class PlayerController : MonoBehaviour
     // Init
     void Start()
     {
-        
+         // Set init score and health text
+        SetScoreText();
+        SetHealthText();
+    }
+
+     public void ReloadScene()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
     }
 
      public void ReloadScene()
