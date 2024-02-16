@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -9,7 +10,15 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 6f; // Variable to determine the movement speed
 
-     private int score =  0; // Initialize the score
+     private int score =  0; // Initialize score
+
+     public Text scoreText;
+
+     // Method that updates score UI text
+    public void SetScoreText()
+    {
+        scoreText.text = "Score: " + score;
+     
 
      public int health = 5;
 
@@ -28,29 +37,32 @@ public class PlayerController : MonoBehaviour
         {
             health--; // Increment the score
             Debug.Log("Health: " + health); // Log the new score
-
         }
 
-         if(--health <= 0)
-        {
-                Debug.Log("Game Over!");
+         if (health == 0)
+        { 
+            Debug.Log("Game Over!");
+            ReloadScene();
         }
         
         if (other.CompareTag("Goal"))
         {
-            Debug.Log("You Win!"); 
+            Debug.Log("You Win!");
+            ReloadScene();
         }
 
-
-
     }
-
-
 
     // Init
     void Start()
     {
         
+    }
+
+     public void ReloadScene()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
     }
 
     // Update is called once per frame
